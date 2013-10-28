@@ -2,14 +2,18 @@ package name.hersen.lambdaunit;
 
 import java.util.function.Consumer;
 
-public class λunit {
-    private static Reporter reporter;
+class λunitImpl {
+    private Reporter reporter;
 
-    public static void setReporter(Reporter reporter) {
-        λunit.reporter = reporter;
+    λunitImpl(Reporter reporter) {
+        this.reporter = reporter;
     }
 
-    public static void it(String s, Consumer<Object> closure) {
+    λunitImpl() {
+        this(new StreamReporter(System.out));
+    }
+
+    void it(String s, Consumer<Object> closure) {
         try {
             closure.accept(null);
             reporter.pass(s);
@@ -18,7 +22,7 @@ public class λunit {
         }
     }
 
-    public static void assertEqual(int expected, int actual) {
+    void assertEqual(int expected, int actual) {
         if (expected != actual) throw new IllegalArgumentException();
     }
 }

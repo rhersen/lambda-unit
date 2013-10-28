@@ -4,26 +4,31 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class λunitTest {
+public class λunitImplTest {
 
     private MockReporter reporter;
+    private λunitImpl target;
 
     @Before
     public void setUp() throws Exception {
         reporter = new MockReporter();
-        λunit.setReporter(reporter);
+        target = new λunitImpl(reporter);
     }
 
     @Test
     public void shouldPass() throws Exception {
-        new PassingTest().describe();
+        new PassingTest(target).describe();
         Assert.assertNotNull(reporter.getPassMessage());
     }
 
     @Test
     public void shouldFail() throws Exception {
-        new FailingTest().describe();
+        new FailingTest(target).describe();
         Assert.assertNotNull(reporter.getFailMessage());
+    }
+    @Test
+    public void shouldHaveDefaultReporter() throws Exception {
+        new FailingTest(new λunitImpl()).describe();
     }
 }
 
@@ -57,21 +62,35 @@ class Subject {
 }
 
 class PassingTest {
+
+    private λunitImpl λ;
+
+    PassingTest(λunitImpl λ) {
+        this.λ = λ;
+    }
+
     void describe() {
-        λunit.it("should add two and two", (object) -> {
+        λ.it("should add two and two", (object) -> {
             Subject subject = new Subject();
             int result = subject.add(2, 2);
-            λunit.assertEqual(4, result);
+            λ.assertEqual(4, result);
         });
     }
 }
 
 class FailingTest {
+
+    private λunitImpl λ;
+
+    FailingTest(λunitImpl λ) {
+        this.λ = λ;
+    }
+
     void describe() {
-        λunit.it("should add two and two", (object) -> {
+        λ.it("should add two and two", (object) -> {
             Subject subject = new Subject();
             int result = subject.add(2, 2);
-            λunit.assertEqual(5, result);
+            λ.assertEqual(5, result);
         });
     }
 }
