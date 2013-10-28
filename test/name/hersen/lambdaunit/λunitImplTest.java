@@ -36,12 +36,10 @@ class MockReporter implements Reporter {
     private String passMessage;
     private String failMessage;
 
-    @Override
     public void pass(String s) {
         passMessage = s;
     }
 
-    @Override
     public void fail(String s) {
         failMessage = s;
     }
