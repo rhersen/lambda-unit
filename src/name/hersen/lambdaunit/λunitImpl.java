@@ -13,17 +13,17 @@ class λunitImpl {
         this(new StreamReporter(System.out));
     }
 
-    void it(String s, Consumer<Object> closure) {
+    void it(String description, Consumer<Object> closure) {
         try {
             closure.accept(null);
-            reporter.pass(s);
-        } catch (Exception e) {
-            reporter.fail(s);
+            reporter.pass(description);
+        } catch (AssertionFailedException e) {
+            reporter.fail(description, e);
         }
     }
 
     void assertEqual(int expected, int actual) {
-        if (expected != actual) throw new IllegalArgumentException();
+        if (expected != actual) throw new AssertionFailedException(expected, actual);
     }
 }
 

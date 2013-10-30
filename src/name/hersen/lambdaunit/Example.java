@@ -10,7 +10,7 @@ public class Example {
         λunit.it("should add two and two", (object) -> {
             Multiplier subject = new Multiplier();
             int result = subject.add(2, 2);
-            λunit.assertEqual(4, result);
+            λunit.assertEqual(5, result);
         });
     }
 

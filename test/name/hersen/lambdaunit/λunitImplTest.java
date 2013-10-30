@@ -26,6 +26,14 @@ public class λunitImplTest {
         new FailingTest(target).describe();
         Assert.assertNotNull(reporter.getFailMessage());
     }
+
+    @Test
+    public void shouldReportExpectedAndActualWhenFailing() throws Exception {
+        new FailingTest(target).describe();
+        Assert.assertEquals(5, reporter.getExpected());
+        Assert.assertEquals(4, reporter.getActual());
+    }
+
     @Test
     public void shouldHaveDefaultReporter() throws Exception {
         new FailingTest(new λunitImpl()).describe();
@@ -34,14 +42,22 @@ public class λunitImplTest {
 
 class MockReporter implements Reporter {
     private String passMessage;
-    private String failMessage;
+    private AssertionFailedException failure;
 
-    public void pass(String s) {
-        passMessage = s;
+    public void pass(String description) {
+        passMessage = description;
     }
 
-    public void fail(String s) {
-        failMessage = s;
+    public void fail(String description, AssertionFailedException failure) {
+        this.failure = failure;
+    }
+
+    public Object getExpected() {
+        return failure.getExpected();
+    }
+
+    public Object getActual() {
+        return failure.getActual();
     }
 
     public String getPassMessage() {
@@ -49,7 +65,7 @@ class MockReporter implements Reporter {
     }
 
     public String getFailMessage() {
-        return failMessage;
+        return failure.toString();
     }
 }
 
