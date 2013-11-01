@@ -1,7 +1,7 @@
 package name.hersen.lambdaunit;
 
 
-import static name.hersen.lambdaunit.λunit.*;
+import static name.hersen.lambdaunit.λμηιτ.*;
 
 public class Example {
     public static void main(String[] args) {

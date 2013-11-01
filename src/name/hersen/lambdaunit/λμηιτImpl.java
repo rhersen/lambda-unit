@@ -2,14 +2,14 @@ package name.hersen.lambdaunit;
 
 import java.util.function.Consumer;
 
-class λunitImpl {
+class λμηιτImpl {
     private Reporter reporter;
 
-    λunitImpl(Reporter reporter) {
+    λμηιτImpl(Reporter reporter) {
         this.reporter = reporter;
     }
 
-    λunitImpl() {
+    λμηιτImpl() {
         this(new StreamReporter(System.out));
     }
 

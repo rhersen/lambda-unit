@@ -2,8 +2,8 @@ package name.hersen.lambdaunit;
 
 import java.util.function.Consumer;
 
-public class λunit {
-    private static final λunitImpl delegate = new λunitImpl();
+public class λμηιτ {
+    private static final λμηιτImpl delegate = new λμηιτImpl();
 
     public static void describe(String description, Consumer<Object> closure) {
         delegate.describe(description, closure);

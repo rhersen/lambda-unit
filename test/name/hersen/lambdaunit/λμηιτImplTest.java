@@ -4,15 +4,15 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class λunitImplTest {
+public class λμηιτImplTest {
 
     private MockReporter reporter;
-    private λunitImpl target;
+    private λμηιτImpl target;
 
     @Before
     public void setUp() throws Exception {
         reporter = new MockReporter();
-        target = new λunitImpl(reporter);
+        target = new λμηιτImpl(reporter);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class λunitImplTest {
 
     @Test
     public void shouldHaveDefaultReporter() throws Exception {
-        new FailingTest(new λunitImpl()).test();
+        new FailingTest(new λμηιτImpl()).test();
     }
 }
 
@@ -77,9 +77,9 @@ class Subject {
 
 class PassingTest {
 
-    private λunitImpl λ;
+    private λμηιτImpl λ;
 
-    PassingTest(λunitImpl λ) {
+    PassingTest(λμηιτImpl λ) {
         this.λ = λ;
     }
 
@@ -96,9 +96,9 @@ class PassingTest {
 
 class FailingTest {
 
-    private λunitImpl λ;
+    private λμηιτImpl λ;
 
-    FailingTest(λunitImpl λ) {
+    FailingTest(λμηιτImpl λ) {
         this.λ = λ;
     }
 
