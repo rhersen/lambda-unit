@@ -13,6 +13,10 @@ class λunitImpl {
         this(new StreamReporter(System.out));
     }
 
+    void describe(String description, Consumer<Object> closure) {
+        closure.accept(null);
+    }
+
     void it(String description, Consumer<Object> closure) {
         try {
             closure.accept(null);

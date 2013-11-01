@@ -17,26 +17,26 @@ public class λunitImplTest {
 
     @Test
     public void shouldPass() throws Exception {
-        new PassingTest(target).describe();
+        new PassingTest(target).test();
         Assert.assertNotNull(reporter.getPassMessage());
     }
 
     @Test
     public void shouldFail() throws Exception {
-        new FailingTest(target).describe();
+        new FailingTest(target).test();
         Assert.assertNotNull(reporter.getFailMessage());
     }
 
     @Test
     public void shouldReportExpectedAndActualWhenFailing() throws Exception {
-        new FailingTest(target).describe();
+        new FailingTest(target).test();
         Assert.assertEquals(5, reporter.getExpected());
         Assert.assertEquals(4, reporter.getActual());
     }
 
     @Test
     public void shouldHaveDefaultReporter() throws Exception {
-        new FailingTest(new λunitImpl()).describe();
+        new FailingTest(new λunitImpl()).test();
     }
 }
 
@@ -83,11 +83,13 @@ class PassingTest {
         this.λ = λ;
     }
 
-    void describe() {
-        λ.it("should add two and two", (object) -> {
-            Subject subject = new Subject();
-            int result = subject.add(2, 2);
-            λ.assertEqual(4, result);
+    void test() {
+        λ.describe("PassingTest", (o1) -> {
+            λ.it("should add two and two", (o2) -> {
+                Subject subject = new Subject();
+                int result = subject.add(2, 2);
+                λ.assertEqual(4, result);
+            });
         });
     }
 }
@@ -100,7 +102,7 @@ class FailingTest {
         this.λ = λ;
     }
 
-    void describe() {
+    void test() {
         λ.it("should add two and two", (object) -> {
             Subject subject = new Subject();
             int result = subject.add(2, 2);

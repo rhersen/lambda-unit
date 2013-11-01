@@ -1,19 +1,28 @@
 package name.hersen.lambdaunit;
 
 
+import static name.hersen.lambdaunit.λunit.*;
+
 public class Example {
     public static void main(String[] args) {
-        new Example().describe();
+        new Example().test();
     }
 
-    void describe() {
-        λunit.it("should add two and two", (object) -> {
-            Multiplier subject = new Multiplier();
-            int result = subject.add(2, 2);
-            λunit.assertEqual(5, result);
+    void test() {
+        describe("Example", (o1) -> {
+            it("should add two and two", (o2) -> {
+                Multiplier subject = new Multiplier();
+                int result = subject.add(2, 2);
+                assertEqual(5, result);
+            });
+
+            it("should add two and three", (o2) -> {
+                Multiplier subject = new Multiplier();
+                int result = subject.add(2, 3);
+                assertEqual(5, result);
+            });
         });
     }
-
 }
 
 class Multiplier {
