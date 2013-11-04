@@ -2,10 +2,10 @@ package name.hersen.lambdaunit;
 
 import java.io.PrintStream;
 
-public class StreamReporter implements Reporter {
+public class PrintStreamReporter implements Reporter {
     private PrintStream out;
 
-    public StreamReporter(PrintStream out) {
+    public PrintStreamReporter(PrintStream out) {
         this.out = out;
     }
 

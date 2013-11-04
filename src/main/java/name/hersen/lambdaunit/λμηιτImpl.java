@@ -10,7 +10,7 @@ class λμηιτImpl {
     }
 
     λμηιτImpl() {
-        this(new StreamReporter(System.out));
+        this(new PrintStreamReporter(System.out));
     }
 
     void describe(String description, Consumer<Object> closure) {
