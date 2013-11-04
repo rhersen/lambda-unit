@@ -7,15 +7,15 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class λμηιτImplTest {
+public class λμηιτεTest {
 
     private Reporter reporter;
-    private λμηιτImpl target;
+    private λμηιτε target;
 
     @Before
     public void setUp() {
         reporter = mock(Reporter.class);
-        target = new λμηιτImpl(reporter);
+        target = new λμηιτε(reporter);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class λμηιτImplTest {
 
     @Test
     public void shouldHaveDefaultReporter() {
-        new FailingTest(new λμηιτImpl()).test();
+        new FailingTest(new λμηιτε()).test();
     }
 }
 
@@ -51,9 +51,9 @@ class Subject {
 
 class PassingTest {
 
-    private λμηιτImpl λ;
+    private λμηιτε λ;
 
-    PassingTest(λμηιτImpl λ) {
+    PassingTest(λμηιτε λ) {
         this.λ = λ;
     }
 
@@ -69,9 +69,9 @@ class PassingTest {
 
 class FailingTest {
 
-    private λμηιτImpl λ;
+    private λμηιτε λ;
 
-    FailingTest(λμηιτImpl λ) {
+    FailingTest(λμηιτε λ) {
         this.λ = λ;
     }
 
@@ -86,9 +86,9 @@ class FailingTest {
 
 class MultipleTest {
 
-    private λμηιτImpl λ;
+    private λμηιτε λ;
 
-    MultipleTest(λμηιτImpl λ) {
+    MultipleTest(λμηιτε λ) {
         this.λ = λ;
     }
 
