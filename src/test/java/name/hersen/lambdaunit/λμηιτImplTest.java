@@ -13,25 +13,32 @@ public class λμηιτImplTest {
     private λμηιτImpl target;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         reporter = mock(Reporter.class);
         target = new λμηιτImpl(reporter);
     }
 
     @Test
-    public void shouldPass() throws Exception {
+    public void shouldPass() {
         new PassingTest(target).test();
         verify(reporter).pass(any());
     }
 
     @Test
-    public void shouldFail() throws Exception {
+    public void shouldFail() {
         new FailingTest(target).test();
         verify(reporter).fail(any(), any());
     }
 
     @Test
-    public void shouldHaveDefaultReporter() throws Exception {
+    public void shouldPassAndFail() {
+        new MultipleTest(target).test();
+        verify(reporter).pass(any());
+        verify(reporter).fail(any(), any());
+    }
+
+    @Test
+    public void shouldHaveDefaultReporter() {
         new FailingTest(new λμηιτImpl()).test();
     }
 }
@@ -51,13 +58,12 @@ class PassingTest {
     }
 
     void test() {
-        λ.describe("PassingTest", (o1) -> {
-            λ.it("should add two and two", (o2) -> {
-                Subject subject = new Subject();
-                int result = subject.add(2, 2);
-                λ.assertEqual(4, result);
-            });
-        });
+        λ.describe("PassingTest", (o1) ->
+                λ.it("should add two and two", (o2) -> {
+                    Subject subject = new Subject();
+                    int result = subject.add(2, 2);
+                    λ.assertEqual(4, result);
+                }));
     }
 }
 
@@ -77,3 +83,29 @@ class FailingTest {
         });
     }
 }
+
+class MultipleTest {
+
+    private λμηιτImpl λ;
+
+    MultipleTest(λμηιτImpl λ) {
+        this.λ = λ;
+    }
+
+    void test() {
+        λ.describe("PassingTest", (o1) -> {
+            λ.it("should add two and two", (o2) -> {
+                Subject subject = new Subject();
+                int result = subject.add(2, 2);
+                λ.assertEqual(4, result);
+            });
+
+            λ.it("should add two and two", (object) -> {
+                Subject subject = new Subject();
+                int result = subject.add(2, 2);
+                λ.assertEqual(5, result);
+            });
+        });
+    }
+}
+

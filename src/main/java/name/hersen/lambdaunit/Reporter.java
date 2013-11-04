@@ -5,7 +5,4 @@ public interface Reporter {
 
     void fail(String description, AssertionFailedException failure);
 
-    Object getExpected();
-
-    Object getActual();
 }
