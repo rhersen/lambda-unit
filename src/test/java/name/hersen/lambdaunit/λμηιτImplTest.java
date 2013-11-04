@@ -1,71 +1,38 @@
 package name.hersen.lambdaunit;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
 public class λμηιτImplTest {
 
-    private MockReporter reporter;
+    private Reporter reporter;
     private λμηιτImpl target;
 
     @Before
     public void setUp() throws Exception {
-        reporter = new MockReporter();
+        reporter = mock(Reporter.class);
         target = new λμηιτImpl(reporter);
     }
 
     @Test
     public void shouldPass() throws Exception {
         new PassingTest(target).test();
-        Assert.assertNotNull(reporter.getPassMessage());
+        verify(reporter).pass(any());
     }
 
     @Test
     public void shouldFail() throws Exception {
         new FailingTest(target).test();
-        Assert.assertNotNull(reporter.getFailMessage());
-    }
-
-    @Test
-    public void shouldReportExpectedAndActualWhenFailing() throws Exception {
-        new FailingTest(target).test();
-        Assert.assertEquals(5, reporter.getExpected());
-        Assert.assertEquals(4, reporter.getActual());
+        verify(reporter).fail(any(), any());
     }
 
     @Test
     public void shouldHaveDefaultReporter() throws Exception {
         new FailingTest(new λμηιτImpl()).test();
-    }
-}
-
-class MockReporter implements Reporter {
-    private String passMessage;
-    private AssertionFailedException failure;
-
-    public void pass(String description) {
-        passMessage = description;
-    }
-
-    public void fail(String description, AssertionFailedException failure) {
-        this.failure = failure;
-    }
-
-    public Object getExpected() {
-        return failure.getExpected();
-    }
-
-    public Object getActual() {
-        return failure.getActual();
-    }
-
-    public String getPassMessage() {
-        return passMessage;
-    }
-
-    public String getFailMessage() {
-        return failure.toString();
     }
 }
 
