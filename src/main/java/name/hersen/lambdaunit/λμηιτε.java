@@ -16,6 +16,7 @@ class λμηιτε {
     void describe(String description, Consumer<Object> closure) {
         reporter.init(description);
         closure.accept(null);
+        reporter.done();
     }
 
     void it(String description, Consumer<Object> closure) {

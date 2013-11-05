@@ -38,6 +38,13 @@ public class λμηιτεTest {
     }
 
     @Test
+    public void shouldCallInitAndDone() {
+        new MultipleTest(target).test();
+        verify(reporter).init(any());
+        verify(reporter).done();
+    }
+
+    @Test
     public void shouldHaveDefaultReporter() {
         new FailingTest(new λμηιτε()).test();
     }

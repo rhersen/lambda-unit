@@ -41,7 +41,15 @@ public class JunitReporterTest {
 
         Testsuite testsuite = subject.getReport().getTestsuite().get(0);
         Assert.assertFalse(testsuite.getName().isEmpty());
-//        Assert.assertFalse(testsuite.getTests().isEmpty());
+    }
+
+    @Test
+    public void testsuiteMustHaveTests() throws Exception {
+        subject.pass("description");
+        subject.done();
+
+        Testsuite testsuite = subject.getReport().getTestsuite().get(0);
+        Assert.assertEquals("1", testsuite.getTests());
     }
 
     @Test

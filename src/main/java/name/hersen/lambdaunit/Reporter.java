@@ -6,4 +6,6 @@ public interface Reporter {
     void fail(String description, AssertionFailedException failure);
 
     void init(String description);
+
+    void done();
 }
