@@ -17,4 +17,8 @@ public class PrintStreamReporter implements Reporter {
         out.println("FAIL:\t" + description + "\t" + failure);
     }
 
+    public void init(String description) {
+        out.println(description);
+    }
+
 }
