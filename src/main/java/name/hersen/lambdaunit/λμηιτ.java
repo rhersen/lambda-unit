@@ -16,4 +16,8 @@ public class λμηιτ {
     public static void it(String s, Consumer<Object> closure) {
         εκτέλεση.it(s, closure);
     }
+
+    public static void beforeEach(Consumer<Object> closure) {
+        εκτέλεση.beforeEach(closure);
+    }
 }

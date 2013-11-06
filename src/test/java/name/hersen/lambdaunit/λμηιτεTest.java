@@ -83,11 +83,12 @@ class FailingTest {
     }
 
     void test() {
-        λ.it("should add two and two", (object) -> {
-            Subject subject = new Subject();
-            int result = subject.add(2, 2);
-            λ.assertEqual(5, result);
-        });
+        λ.describe("FailingTest", (o1) ->
+                λ.it("should add two and two", (object) -> {
+                    Subject subject = new Subject();
+                    int result = subject.add(2, 2);
+                    λ.assertEqual(5, result);
+                }));
     }
 }
 
@@ -99,16 +100,20 @@ class MultipleTest {
         this.λ = λ;
     }
 
+    Subject subject;
+
     void test() {
-        λ.describe("PassingTest", (o1) -> {
-            λ.it("should add two and two", (o2) -> {
-                Subject subject = new Subject();
+        λ.describe("PassingTest", (o0) -> {
+            λ.beforeEach((o) -> {
+                subject = new Subject();
+            });
+
+            λ.it("should add two and two", (o) -> {
                 int result = subject.add(2, 2);
                 λ.assertEqual(4, result);
             });
 
-            λ.it("should add two and two", (object) -> {
-                Subject subject = new Subject();
+            λ.it("should add two and two", (o) -> {
                 int result = subject.add(2, 2);
                 λ.assertEqual(5, result);
             });
