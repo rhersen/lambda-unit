@@ -16,7 +16,7 @@ public class JunitReporterTest {
     @Before
     public void setUp() throws Exception {
         subject = new JunitReporter();
-        subject.init("description");
+        subject.init("name");
     }
 
     @Test
@@ -32,7 +32,7 @@ public class JunitReporterTest {
         subject.pass("description");
 
         Testcase testcase = subject.getReport().getTestsuite().get(0).getTestcase().get(0);
-        Assert.assertFalse(testcase.getName().isEmpty());
+        Assert.assertEquals("description", testcase.getName());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class JunitReporterTest {
         subject.pass("description");
 
         Testsuite testsuite = subject.getReport().getTestsuite().get(0);
-        Assert.assertFalse(testsuite.getName().isEmpty());
+        Assert.assertEquals("name", testsuite.getName());
     }
 
     @Test
