@@ -69,7 +69,7 @@ class PassingTest {
                 λ.it("should add two and two", (o2) -> {
                     Subject subject = new Subject();
                     int result = subject.add(2, 2);
-                    λ.assertEqual(4, result);
+                    λ.expect(result).toBe(4);
                 }));
     }
 }
@@ -87,7 +87,7 @@ class FailingTest {
                 λ.it("should add two and two", (object) -> {
                     Subject subject = new Subject();
                     int result = subject.add(2, 2);
-                    λ.assertEqual(5, result);
+                    λ.expect(result).toBe(5);
                 }));
     }
 }
@@ -110,13 +110,13 @@ class MultipleTest {
 
             λ.it("should add two and two", (o) -> {
                 int result = subject.add(2, 2);
-                λ.assertEqual(4, result);
+                λ.expect(result).toBe(4);
                 subject = null;
             });
 
             λ.it("should add two and two", (o) -> {
                 int result = subject.add(2, 2);
-                λ.assertEqual(5, result);
+                λ.expect(result).toBe(5);
             });
         });
     }

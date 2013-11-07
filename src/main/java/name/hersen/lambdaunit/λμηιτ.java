@@ -9,8 +9,8 @@ public class λμηιτ {
         εκτέλεση.describe(description, closure);
     }
 
-    public static void assertEqual(int expected, int actual) {
-        εκτέλεση.assertEqual(expected, actual);
+    public static Expect expect(Object actual) {
+        return εκτέλεση.expect(actual);
     }
 
     public static void it(String s, Consumer<Object> closure) {

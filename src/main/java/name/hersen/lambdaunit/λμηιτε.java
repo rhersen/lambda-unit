@@ -43,8 +43,8 @@ class λμηιτε {
         its.add(new WrappedClosure(description, closure));
     }
 
-    void assertEqual(int expected, int actual) {
-        if (expected != actual) throw new AssertionFailedException(expected, actual);
+    Expect expect(Object actual) {
+        return new Expect(actual);
     }
 
     public void beforeEach(Consumer<Object> closure) {
