@@ -12,12 +12,4 @@ public class AssertionFailedException extends RuntimeException {
         this.expected = expected;
         this.actual = actual;
     }
-
-    public Object getExpected() {
-        return expected;
-    }
-
-    public Object getActual() {
-        return actual;
-    }
 }

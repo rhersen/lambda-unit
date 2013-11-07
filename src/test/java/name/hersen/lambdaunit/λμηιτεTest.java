@@ -103,7 +103,7 @@ class MultipleTest {
     Subject subject;
 
     void test() {
-        λ.describe("PassingTest", (o0) -> {
+        λ.describe("MultipleTest", (o0) -> {
             λ.beforeEach((o) -> {
                 subject = new Subject();
             });
@@ -111,6 +111,7 @@ class MultipleTest {
             λ.it("should add two and two", (o) -> {
                 int result = subject.add(2, 2);
                 λ.assertEqual(4, result);
+                subject = null;
             });
 
             λ.it("should add two and two", (o) -> {

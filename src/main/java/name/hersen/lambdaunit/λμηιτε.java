@@ -23,11 +23,11 @@ class λμηιτε {
         reporter.init(name);
         closure.accept(null);
 
-        for (Consumer<Object> consumer : eachs) {
-            consumer.accept(null);
-        }
-
         for (WrappedClosure wrapped : its) {
+            for (Consumer<Object> consumer : eachs) {
+                consumer.accept(null);
+            }
+
             try {
                 wrapped.getClosure().accept(null);
                 reporter.pass(wrapped.getDescription());
@@ -40,7 +40,7 @@ class λμηιτε {
     }
 
     void it(String description, Consumer<Object> closure) {
-        its.push(new WrappedClosure(description, closure));
+        its.add(new WrappedClosure(description, closure));
     }
 
     void assertEqual(int expected, int actual) {
@@ -48,7 +48,7 @@ class λμηιτε {
     }
 
     public void beforeEach(Consumer<Object> closure) {
-        eachs.push(closure);
+        eachs.add(closure);
     }
 }
 
