@@ -2,7 +2,7 @@ package name.hersen.lambdaunit;
 
 import java.io.PrintStream;
 
-public class PrintStreamReporter implements Reporter {
+class PrintStreamReporter implements Reporter {
     private PrintStream out;
     private int tests;
 

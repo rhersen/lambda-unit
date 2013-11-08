@@ -47,7 +47,7 @@ class λμηιτε {
         return new Expect(actual);
     }
 
-    public void beforeEach(Consumer<Object> closure) {
+    void beforeEach(Consumer<Object> closure) {
         eachs.add(closure);
     }
 }

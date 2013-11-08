@@ -1,6 +1,6 @@
 package name.hersen.lambdaunit;
 
-public class AssertionFailedException extends RuntimeException {
+class AssertionFailedException extends RuntimeException {
     private Object expected;
     private Object actual;
 
@@ -8,7 +8,7 @@ public class AssertionFailedException extends RuntimeException {
         return "expected " + expected + " but got " + actual;
     }
 
-    public AssertionFailedException(Object expected, Object actual) {
+    AssertionFailedException(Object expected, Object actual) {
         this.expected = expected;
         this.actual = actual;
     }

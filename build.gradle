@@ -8,3 +8,7 @@ dependencies {
     testCompile 'junit:junit:4.+'
     testCompile 'org.mockito:mockito-all:1.8.4'
 }
+
+javadoc {
+    options.encoding = "UTF-8"
+}

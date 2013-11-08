@@ -2,7 +2,7 @@ package name.hersen.lambdaunit;
 
 import name.hersen.junit.*;
 
-public class JunitReporter implements Reporter {
+class JunitReporter implements Reporter {
 
     private final ObjectFactory factory = new ObjectFactory();
     private Testsuites root = factory.createTestsuites();
@@ -35,7 +35,7 @@ public class JunitReporter implements Reporter {
         testsuite.setTests(Integer.toString(tests));
     }
 
-    public Testsuites getReport() {
+    Testsuites getReport() {
         return root;
     }
 

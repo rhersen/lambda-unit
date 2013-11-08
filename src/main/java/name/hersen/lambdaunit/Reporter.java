@@ -1,6 +1,6 @@
 package name.hersen.lambdaunit;
 
-public interface Reporter {
+interface Reporter {
     void pass(String description);
 
     void fail(String description, AssertionFailedException failure);
