@@ -8,9 +8,12 @@ public class Example {
     }
 
     void test() {
-        describe("A suite", (d) -> {
-            it("contains spec with an expectation", (o) -> {
+        describe("The 'toBe' matcher compares with ===", (d) -> {
+            it("and has a positive case ", (o) -> {
                 expect(true).toBe(true);
+            });
+            it("and can have a negative case", (o) -> {
+                expect(false).not.toBe(true);
             });
         });
     }

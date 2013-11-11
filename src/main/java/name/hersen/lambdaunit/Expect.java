@@ -1,13 +1,15 @@
 package name.hersen.lambdaunit;
 
-class Expect {
+class Expect implements Matcher {
     private Object actual;
+    public Matcher not;
 
     Expect(Object actual) {
         this.actual = actual;
+        not = new NotExpect(this.actual);
     }
 
-    void toBe(Object expected) {
+    public void toBe(Object expected) {
         if (!expected.equals(actual)) throw new AssertionFailedException(expected, actual);
     }
 }

@@ -70,6 +70,7 @@ class PassingTest {
                     Subject subject = new Subject();
                     int result = subject.add(2, 2);
                     λ.expect(result).toBe(4);
+                    λ.expect(result).not.toBe(5);
                 }));
     }
 }
@@ -87,7 +88,7 @@ class FailingTest {
                 λ.it("should add two and two", (object) -> {
                     Subject subject = new Subject();
                     int result = subject.add(2, 2);
-                    λ.expect(result).toBe(5);
+                    λ.expect(result).not.toBe(4);
                 }));
     }
 }
