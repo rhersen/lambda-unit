@@ -2,6 +2,7 @@ package name.hersen.lambdaunit;
 
 import java.util.function.Consumer;
 
+@SuppressWarnings("UnusedDeclaration")
 public class λμηιτ {
     private static final λμηιτε εκτέλεση = new λμηιτε();
 
@@ -42,5 +43,15 @@ public class λμηιτ {
      */
     public static void beforeEach(Consumer<Object> closure) {
         εκτέλεση.beforeEach(closure);
+    }
+
+    /**
+     * Sets a reporter. If this method isn't called, a PrintStreamReporter will be used, and it will report on stdout.
+     * This method should be called before any other methods on this class.
+     *
+     * @param reporter a reporter to use. Out-of-the-box implementations are PrintStreamReporter and JunitReporter.
+     */
+    public static void setReporter(Reporter reporter) {
+        εκτέλεση.setReporter(reporter);
     }
 }

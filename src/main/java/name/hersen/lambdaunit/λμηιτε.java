@@ -50,5 +50,9 @@ class λμηιτε {
     void beforeEach(Consumer<Object> closure) {
         eachs.add(closure);
     }
+
+    void setReporter(Reporter reporter) {
+        this.reporter = reporter;
+    }
 }
 
