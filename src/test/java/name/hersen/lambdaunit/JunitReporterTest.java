@@ -3,6 +3,7 @@ package name.hersen.lambdaunit;
 import name.hersen.junit.Failure;
 import name.hersen.junit.Testcase;
 import name.hersen.junit.Testsuite;
+import name.hersen.lambdaunit.matchers.AssertionFailedException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

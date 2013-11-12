@@ -1,5 +1,8 @@
 package name.hersen.lambdaunit;
 
+import name.hersen.lambdaunit.matchers.AssertionFailedException;
+import name.hersen.lambdaunit.matchers.Expect;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.function.Consumer;

@@ -1,5 +1,7 @@
 package name.hersen.lambdaunit;
 
+import name.hersen.lambdaunit.matchers.AssertionFailedException;
+
 interface Reporter {
     void pass(String description);
 

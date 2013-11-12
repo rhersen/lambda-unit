@@ -1,6 +1,7 @@
 package name.hersen.lambdaunit;
 
 import name.hersen.junit.*;
+import name.hersen.lambdaunit.matchers.AssertionFailedException;
 
 class JunitReporter implements Reporter {
 

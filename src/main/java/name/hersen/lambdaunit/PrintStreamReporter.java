@@ -1,5 +1,7 @@
 package name.hersen.lambdaunit;
 
+import name.hersen.lambdaunit.matchers.AssertionFailedException;
+
 import java.io.PrintStream;
 
 class PrintStreamReporter implements Reporter {

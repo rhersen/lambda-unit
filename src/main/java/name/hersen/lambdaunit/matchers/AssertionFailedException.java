@@ -1,6 +1,6 @@
-package name.hersen.lambdaunit;
+package name.hersen.lambdaunit.matchers;
 
-class AssertionFailedException extends RuntimeException {
+public class AssertionFailedException extends RuntimeException {
     private Object expected;
     private Object actual;
 
@@ -8,7 +8,7 @@ class AssertionFailedException extends RuntimeException {
         return "expected " + expected + " but got " + actual;
     }
 
-    AssertionFailedException(Object expected, Object actual) {
+    public AssertionFailedException(Object expected, Object actual) {
         this.expected = expected;
         this.actual = actual;
     }

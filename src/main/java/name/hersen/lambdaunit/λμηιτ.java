@@ -1,5 +1,7 @@
 package name.hersen.lambdaunit;
 
+import name.hersen.lambdaunit.matchers.Expect;
+
 import java.util.function.Consumer;
 
 @SuppressWarnings("UnusedDeclaration")

@@ -1,10 +1,10 @@
-package name.hersen.lambdaunit;
+package name.hersen.lambdaunit.matchers;
 
-class Expect implements Matcher {
+public class Expect implements Matcher {
     private Object actual;
     public Matcher not;
 
-    Expect(Object actual) {
+    public Expect(Object actual) {
         this.actual = actual;
         not = new NotExpect(this.actual);
     }

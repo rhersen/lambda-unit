@@ -1,4 +1,4 @@
-package name.hersen.lambdaunit;
+package name.hersen.lambdaunit.matchers;
 
 class NotExpect implements Matcher {
     private Object actual;
